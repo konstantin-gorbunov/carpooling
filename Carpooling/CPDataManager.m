@@ -69,6 +69,9 @@ static NSString *kUriFormat = @"http://www.mitfahrgelegenheit.de/lifts/getCities
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"Error: %@", [error localizedDescription]);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+        [alert show];
+        
     }];
     
 }
