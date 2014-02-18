@@ -12,7 +12,9 @@ static NSString *kNotificationName = @"DataDownloadComplited";
 
 @interface CPDataManager : NSObject
 
-+ (id)sharedManager;
+@property (readonly, strong, nonatomic) NSDictionary *cityMap;
+
++ (CPDataManager*)sharedManager;
 
 - (void)loadData;
 

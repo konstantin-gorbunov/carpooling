@@ -33,15 +33,21 @@
 
 - (void) setup {
     tableController = [[CPTableController alloc] init];
+}
+
+- (void)viewWillAppear:(BOOL)animated {    
+    [super viewWillAppear:animated];
     
     self.cityTableView.dataSource = tableController;
     self.cityTableView.delegate = tableController;
     
-    self.countryNumberTextField.delegate = self;
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(useNotificationWithString:)
                                                  name:kNotificationName object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
@@ -61,22 +67,23 @@
     else {
         [[CPDataManager sharedManager] loadData];
     }
+    [self.countryNumberTextField resignFirstResponder];
 }
 
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if (textField.text.length >= 2) {
-        return NO;
+    if (textField.text.length < 2 || string.length == 0) {
+        return YES;
     }
     else {
-        return YES;
+        return NO;
     }
 }
 
 #pragma mark - Notifications
 - (void)useNotificationWithString:(NSNotification*)notification {
-    NSLog(@"123");
+    [self.cityTableView reloadData];
 }
 
 @end

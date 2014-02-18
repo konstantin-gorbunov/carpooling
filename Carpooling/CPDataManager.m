@@ -23,7 +23,7 @@ static NSString *kUriFormat = @"http://www.mitfahrgelegenheit.de/lifts/getCities
 
 #pragma mark Singleton Methods
 
-+ (id)sharedManager {
++ (CPDataManager*)sharedManager {
     static CPDataManager *sharedDataManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
