@@ -1,0 +1,11 @@
+Here is the test:
+ 
+Create a new, native iOS App from scratch with the following functionality:
+1. Load a list of cities from the URL http://www.mitfahrgelegenheit.de/lifts/getCities/1
+2. Display the decrypted list of cities in a view.
+3. Add a separate field to the view to allow the user to enter a number (1..99)
+4. When the user adds a number, reload the lift of cities (http://www.mitfahrgelegenheit.de/lifts/getCities/<number>) and refresh the content of the view.
+ 
+Try to complete the task in one hour to 90 mins. If it takes longer, that is OK, but probably should not go more than 120 mins. Make sure to write good, clean and well structured code. We do not ask for beautiful views (but don't mind if you do fancy stuff).
+ 
+Please zip up everything I need to import and run in a dev environment and send a version that I can run on my device.
